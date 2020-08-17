@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="OnlineRA.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OffilineRA"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <MediaElement x:Name="mediaelement"></MediaElement>
+        <Canvas x:Name="canvas"  Background="Transparent" PointerMoved="canvas_PointerMoved" PointerPressed="canvas_PointerPressed">
+            <Image x:Name="mapa_ra" Grid.ColumnSpan="10" Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Grid.Row="0" Grid.RowSpan="10"/>
+            <ColorPicker x:Name="colorpicker" Canvas.Left="100" Canvas.Top="100" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Stretch" ColorChanged="colorpicker_ColorChanged"/>
+            <TextBlock x:Name="TextBlockSlider" Margin="0 20 0 0" Visibility="Collapsed" ><Run Foreground="White">Size</Run></TextBlock>
+            <Slider x:Name="SizeSlider" Maximum="100" Minimum="10" Canvas.Top="60" Canvas.Left="10" Visibility="Collapsed" ValueChanged="SizeSlider_ValueChanged" SmallChange="1" Background="White" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="25" VerticalAlignment="Stretch" Width="260"/>
+            <Image x:Name="img2" Visibility="Visible" Height="398" Canvas.Left="567" Canvas.Top="232" Width="747" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <MediaElement x:Name="mediaplayer" Height="190" Canvas.Left="510" Canvas.Top="375" Width="340"/>
+            <Canvas.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem x:Name="imvideo" Text="Imagens" Click="menu_video"/>
+                    <MenuFlyoutItem x:Name="imsocket" Text="Socket Inativo" Click="menu_socket"/>
+                    <MenuFlyoutItem x:Name="imlocal" Text="LOCAL" Click="menu_local"/>
+                    <MenuFlyoutItem Text="Desenho" Click="menu_desenho"></MenuFlyoutItem>
+                    <MenuFlyoutItem x:Name="imtrocar_time" Text="Trocar time" Click="troca_time"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem x:Name="imtexto" Text="Texto" Click="menu_texto"/>
+                    <MenuFlyoutItem x:Name="imlinha" Text="Linha" Click="menu_linha"/>
+                    <MenuFlyoutItem x:Name="imcirculo" Text="Circulo" Click="menu_circulo"/>
+                    <MenuFlyoutItem x:Name="imquadrado" Text="Quadrado" Click="menu_quadrado"/>
+                    <MenuFlyoutItem x:Name="imretangulo" Text="Retangulo" Click="menu_retangulo"/>
+                    <MenuFlyoutItem x:Name="imcor" Text="Selecionar Cor" Click="menu_selecionarcor"/>
+                    <MenuFlyoutItem Visibility="Collapsed" x:Name="imferramentas" Text="Ferramentas Desenho" Click="menu_ferramentas"/>
+                    <MenuFlyoutItem x:Name="imlimpar" Text="Limpar Tela" Click="menu_limpartela"/>
+                    <MenuFlyoutItem x:Name="imsalvar"  Text="Salvar Imagem" Click="menu_salvarimagem"/>
+                    <MenuFlyoutSubItem x:Name="imtamanho" Text="Tamanho">
+                        <MenuFlyoutItem Text="Tamanho 10" Click="menu_tamanho10"/>
+                        <MenuFlyoutItem Text="Tamanho 20" Click="menu_tamanho20"/>
+                        <MenuFlyoutItem Text="Tamanho 30" Click="menu_tamanho30"/>
+                        <MenuFlyoutItem Text="Tamanho 50" Click="menu_tamanho50"/>
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutItem x:Name="imdesfazer" Text="Desfazer" Click="menu_desfazer"/>
+                    <MenuFlyoutSeparator/>
+
+                    <MenuFlyoutItem x:Name="imfull" Text="FullScreen" Click="menu_fullscreen"/>
+                </MenuFlyout>
+            </Canvas.ContextFlyout>
+        </Canvas>
+    </Grid>
+</Page>
